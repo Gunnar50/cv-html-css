@@ -88,13 +88,12 @@ header {
 	padding: 1rem 3rem;
 }
 
-.nav-container {
-	display: block;
+.nav-title {
+	animation: slide-right 500ms ease forwards;
 }
 
-.nav-title {
-	display: flex;
-	align-items: center;
+.nav-container {
+	display: block;
 }
 
 nav a:hover {
@@ -167,6 +166,24 @@ nav ul li {
 
 	nav ul li {
 		display: block;
+		opacity: 0;
+		animation: slide-top 500ms ease forwards;
+	}
+
+	nav ul li:nth-child(2) {
+		animation-delay: 100ms;
+	}
+
+	nav ul li:nth-child(3) {
+		animation-delay: 200ms;
+	}
+
+	nav ul li:nth-child(4) {
+		animation-delay: 300ms;
+	}
+
+	nav ul li:nth-child(5) {
+		animation-delay: 400ms;
 	}
 
 	.nav-container {
@@ -204,6 +221,7 @@ nav ul li {
 	color: white;
 	text-align: center;
 	padding: 50px;
+	animation: fade-in 200ms ease-in;
 }
 
 .hero h2 {
@@ -412,6 +430,15 @@ nav ul li {
 .card {
 	background-color: #ddd;
 	text-align: center;
+	border-radius: 5px;
+	box-shadow: 0 5px 15px -10px #222;
+	overflow: hidden;
+	transition: all 200ms;
+}
+
+.card:hover {
+	box-shadow: 0 10px 20px -10px #222;
+	transform: translateY(-7px);
 }
 
 .card-text {
@@ -459,16 +486,17 @@ nav ul li {
 	gap: 20px;
 }
 
-.contact li {
-	padding: 0px 50px;
+.contact ul li {
+	transition: all 200ms;
 }
 
 .contact i {
 	margin-right: 8px;
 }
 
-.contact a:hover {
-	color: #777;
+.contact ul li:hover {
+	color: #8a0b51;
+	transform: translateX(5px);
 }
 
 /* Tablet */
@@ -497,6 +525,11 @@ footer {
 	display: flex;
 	align-items: center;
 	order: -1;
+	transition: all 200ms;
+}
+
+.footer-icons a:hover {
+	transform: translateY(-5px);
 }
 
 .footer-section a:hover:first-child {
@@ -535,6 +568,39 @@ footer {
 	}
 }
 
+/* Keyframes */
+@keyframes slide-right {
+	0% {
+		transform: translateX(-100px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes slide-top {
+	0% {
+		transform: translateY(30px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+/* 
 @media screen and (prefers-color-scheme: dark) {
 	body {
 		background-color: #222;
@@ -564,4 +630,4 @@ footer {
 	footer {
 		background-color: #777;
 	}
-}
+} */
